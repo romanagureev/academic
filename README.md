@@ -7,4 +7,6 @@
 
 # Academic projects
 
-* [MIPT](mipt)
+* [MIPT](mipt)  
+  Moscow Institute of Physics and Technologies  
+  Bachelors degree
