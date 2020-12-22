@@ -4,5 +4,5 @@
 laplacian for functions via weak laplace operator in order to find heat flow and smoothly reconstruct the surface.
 
 ### Example
-![original](datasets/teddy.png?raw)
-![after perform](results/teddy_perform.png)
+Anchor everything, but the arm and move tip of it to nose. Implementation in `run.py`
+<img src="datasets/teddy.png" width="410"> <img src="results/teddy_perform.png" width="390">
