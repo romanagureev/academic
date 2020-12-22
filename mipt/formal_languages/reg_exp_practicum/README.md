@@ -1,6 +1,6 @@
 ### Task
 Alphabet {__1__, __a__, __b__, __c__}.  \
-Operations {__.__(concatenations), __+__(alternation), __\*__(Kleene star)}  \
+Operations {__.__(concatenations), __+__(alternation), __\*__(Kleene star)}
 
 Даны регулярное выражение в обратной польской записи, буква _x_ и натуральное число _k_. Вывести, есть ли в языке _L_ слова, содержащие префикс _x^k_.
 
