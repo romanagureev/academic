@@ -1,0 +1,18 @@
+0 S
+S -> C
+D -> aDb
+S -> SC
+C -> cD
+D -> \EPS
+end
+
+1 S
+S -> SS
+S -> a
+end
+
+2 S
+S -> a
+S -> bSb
+S -> cSc
+end
