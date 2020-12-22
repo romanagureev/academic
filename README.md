@@ -1,2 +1,3 @@
-# academic
-Academic projects and courses
+# Academic projects
+
+* [MIPT](mipt)
