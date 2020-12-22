@@ -1,4 +1,4 @@
 `2sem` `python`
-### Projects
+### Few projects
 
 * [Encryptor](Encryptor/)
