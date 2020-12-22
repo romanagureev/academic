@@ -1,0 +1,50 @@
+TEST 0: a 1 | a
+YES
+
+TEST 1: a 1 | abaa
+YES
+
+TEST 2: b 3 | (a + b)bb
+YES
+
+TEST 3: c 3 | ((a + b + c)b + c)*
+YES
+
+TEST 4: c 4 | (a* + b)c((c* + a + 1 + a)b + 1)(c + 1)(ab)*cc
+YES
+
+TEST 5: a 1 | b
+NO
+
+TEST 6: b 2 | a + b
+NO
+
+TEST 7: b 3 | (a + b)bbc
+NO
+
+TEST 8: c 3 | c*a + b
+NO
+
+TEST 9: a 2 | a(a + b + c)*b(1 + 1)*c1a**ab(c** + a)
+NO
+
+TEST 10: a 50 | (((aa + a) + b)c)*(b + 1)(b + 1)*(a* + a + 1)a
+YES
+
+TEST 11: a 3 | *
+Error while parsing regular expression: Not enough literals.
+
+TEST 12: a 2 | a.
+Error while parsing regular expression: Not enough literals.
+
+TEST 13: a 1 | (a + b)d
+Error while parsing regular expression: Invalid character.
+
+TEST 14: a 5 | aaaaa (without '.')
+Error while parsing regular expression: Not enough operations.
+
+TEST 15: a 2 | ((a + b)c + a(ba)*(b + ac))∗
+NO
+
+TEST 16: c 0 | (acb + b(abc)∗(ab + ba))*a
+YES 

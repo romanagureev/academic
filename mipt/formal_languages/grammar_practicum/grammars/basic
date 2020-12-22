@@ -1,0 +1,49 @@
+Palindrome S
+S -> aSa
+S -> bSb
+S -> cSc
+S -> dSd
+S -> a
+S -> b
+S -> c
+S -> d
+S -> \EPS
+end
+
+CorrectBracketSequence S
+S -> (S)
+S -> SS
+S -> \EPS
+end
+
+Arithmetics S
+S -> SOS
+S -> (S)
+S -> 0
+S -> DN
+O -> +
+O -> -
+O -> *
+O -> /
+D -> 1
+D -> 2
+D -> 3
+D -> 4
+D -> 5
+D -> 6
+D -> 7
+D -> 8
+D -> 9
+N -> NN
+N -> \EPS
+N -> 0
+N -> 1
+N -> 2
+N -> 3
+N -> 4
+N -> 5
+N -> 6
+N -> 7
+N -> 8
+N -> 9
+end

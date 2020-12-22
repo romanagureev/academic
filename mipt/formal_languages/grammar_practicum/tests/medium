@@ -1,0 +1,23 @@
+1223+152536*((456/31)-1010/11)-((13))
+Arithmetics Y
+end
+
+1056-(11)+03
+Arithmetics N
+end
+
+aabccdabcbdbcbadccbaa
+Palindrome Y
+end
+
+aabccdabcbdbcbadcdbaa
+Palindrome N
+end
+
+((()())((()))())
+CorrectBracketSequence Y
+end
+
+((()())))(()
+CorrectBracketSequence N
+end

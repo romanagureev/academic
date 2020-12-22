@@ -1,0 +1,51 @@
+TEST 0
+YES
+
+TEST 1
+YES
+
+TEST 2
+YES
+
+TEST 3
+YES
+
+TEST 4
+YES
+
+TEST 5
+NO
+
+TEST 6
+NO
+
+TEST 7
+NO
+
+TEST 8
+NO
+
+TEST 9
+NO
+
+TEST 10
+YES
+
+TEST 11
+Error while parsing regular expression: Not enough literals.
+
+TEST 12
+Error while parsing regular expression: Not enough literals.
+
+TEST 13
+Error while parsing regular expression: Invalid character.
+
+TEST 14
+Error while parsing regular expression: Not enough operations.
+
+TEST 15
+NO
+
+TEST 16
+YES
+
