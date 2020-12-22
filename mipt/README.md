@@ -1,5 +1,6 @@
 ## Few projects
 
+* [Geometry in CS](gcs)
 * [Core Java](java)
 * [Formal languages](formal_languages)
 * [Computer acrhitecture and operating systems](caos)
