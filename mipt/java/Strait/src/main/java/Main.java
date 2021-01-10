@@ -3,7 +3,7 @@ public class Main {
         StraitContext strait = new StraitContext();
         ShipGenerator shipGenerator = new ShipGenerator(strait);
 
-        Ship[] ships = shipGenerator.generate(10);
+        Ship[] ships = shipGenerator.generate(15);
         start(ships, strait);
     }
 
@@ -13,6 +13,7 @@ public class Main {
      * @param strait
      */
     public static void start(Ship[] ships, StraitContext strait) {
+        strait.startDay();
         for (Ship ship: ships) {
             strait.captains.submit(ship);
         }

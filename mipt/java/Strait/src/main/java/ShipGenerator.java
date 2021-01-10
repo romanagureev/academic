@@ -1,15 +1,16 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
 public class ShipGenerator {
-    final private StraitContext ctx_;
-    final private Logger logger_;
+    final private StraitContext ctx;
+    final private Logger logger;
 
     public ShipGenerator(StraitContext ctx) {
-        ctx_ = ctx;
-        logger_ = Logger.getLogger(ShipGenerator.class.getName());
+        this.ctx = ctx;
+        logger = Logger.getLogger(ShipGenerator.class.getName());
     }
 
     /**
@@ -21,16 +22,16 @@ public class ShipGenerator {
         Ship[] ships = new Ship[ships_cnt];
 
         Integer[] capacities = {10, 50, 100};
-        ArrayList<ShipType> types = new ArrayList<>(Arrays.asList(ShipType.values()));
+        List<ShipType> types = new ArrayList<>(Arrays.asList(ShipType.values()));
         Random random = new Random();
 
         for (int i = 0; i < ships_cnt; ++i) {
             ships[i] = new Ship(types.get(random.nextInt(3)),
                                 capacities[random.nextInt(3)],
-                                ctx_);
+                    ctx);
         }
 
-        logger_.info("Generated " + ships_cnt.toString() + " ships.");
+        logger.info("Generated " + ships_cnt.toString() + " ships.");
         return ships;
     }
 }
