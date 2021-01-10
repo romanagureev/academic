@@ -1,34 +1,47 @@
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 
 public class Pier implements Runnable {
-    final private ShipType type_;
-    final private Integer rate_ = 10;
-    final private Logger logger_;
-    final private BlockingQueue<Ship> line_;
+    final private ShipType type;
+    final private int rate = 10;
+    final private int pollTimeMs = 100;
+    final private AtomicBoolean workingDay;
+    final private Logger logger;
+    final private BlockingQueue<Ship> line;
 
     public Pier(ShipType type, StraitContext ctx) {
-        type_ = type;
-        line_ = ctx.pierLines.get(type);
-        logger_ = Logger.getLogger(Pier.class.getName());
+        this.type = type;
+        workingDay = ctx.workingDay;
+        line = ctx.pierLines.get(type);
+        logger = Logger.getLogger(Pier.class.getName());
     }
 
     @Override
     public void run() {
-        logger_.info("Pier started working.");
-        while (true) {
+        logger.info("Pier started working.");
+        while (workingDay.get()) {
             try {
-                Ship ship = line_.take();
-                logger_.info("A new ship arrived!");
-                ship.load(rate_);
-                logger_.info(type_.name() + " loaded.");
+                Ship ship = line.poll(pollTimeMs, TimeUnit.MILLISECONDS);
+                if (ship == null) {
+                    continue;
+                }
+                logger.info("A new ship arrived!");
+                ship.load(rate);
+                logger.info(type.name() + " loaded.");
             } catch (InterruptedException e) {
-                logger_.severe(e.getMessage());
+                if (!workingDay.get()) {
+                    logger.info("Working day ended, going home.");
+                    return;
+                } else {
+                    logger.severe(e.getMessage());
+                }
             }
         }
     }
 
     public ShipType getType() {
-        return type_;
+        return type;
     }
 }

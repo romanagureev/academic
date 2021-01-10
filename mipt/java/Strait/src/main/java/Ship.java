@@ -1,59 +1,68 @@
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Logger;
 
 public class Ship implements Runnable {
-    final private ShipType type_;
-    final private Integer capacity_;
-    final private Logger logger_;
-    final private Semaphore tunnel_;
+    final private ShipType type;
+    final private int capacity;
+    final private Logger logger;
+    final private Semaphore tunnel;
+    final private Semaphore loaded;
     final private BlockingQueue<Ship> pierLine;
+    final private AtomicBoolean workingDay;
 
     public Ship(ShipType type, Integer capacity, StraitContext ctx) {
-        assert (capacity == 10) || (capacity == 50) || (capacity == 100);
-        type_ = type;
-        capacity_ = capacity;
+        this.type = type;
+        this.capacity = capacity;
 
-        tunnel_ = ctx.tunnel;
+        tunnel = ctx.tunnel;
+        loaded = new Semaphore(0);
         pierLine = ctx.pierLines.get(type);
 
-        logger_ = Logger.getLogger(Ship.class.getName());
-        logger_.info("A new ship: " + type.name() + ", " + capacity.toString());
+        workingDay = ctx.workingDay;
+
+        logger = Logger.getLogger(Ship.class.getName());
+        logger.info("A new ship: " + type.name() + ", " + capacity.toString());
     }
 
     private void goThroughTunnel() throws InterruptedException {
-        tunnel_.acquire();
-        logger_.info("In the tunnel");
+        tunnel.acquire();
+        logger.info("In the tunnel");
         Thread.sleep(1000);
-        tunnel_.release();
-        logger_.info("Out of tunnel");
+        tunnel.release();
+        logger.info("Out of tunnel");
     }
 
     public void load(Integer rate) throws InterruptedException {
         // Assuming capacity is divisible by rate
-        Thread.sleep(1000 * capacity_ / rate);
+        Thread.sleep(1000 * capacity / rate);
+        loaded.release();
     }
 
     @Override
     public void run() {
-        logger_.info("Start sailing!");
+        logger.info("Start sailing!");
         try {
             goThroughTunnel();
-        } catch (InterruptedException e) {
-            logger_.severe(e.getMessage());
-        }
-        try {
             pierLine.put(this);
+            loaded.acquire();
         } catch (InterruptedException e) {
-            logger_.severe(e.getMessage());
+            if (!workingDay.get()) {
+                logger.info("Working day ended, sailing away.");
+                return;
+            } else {
+                logger.severe(e.getMessage());
+            }
         }
+        logger.info("Sailed away.");
     }
 
-    public Integer getCapacity() {
-        return capacity_;
+    public int getCapacity() {
+        return capacity;
     }
 
     public ShipType getType() {
-        return type_;
+        return type;
     }
 }

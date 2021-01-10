@@ -19,6 +19,7 @@
 * Concurrency (4sem)
 * Introduction to Data Analysis (4sem)
 * Mathematical statistics practicums in Python (5sem)
+* Core Java (5sem) [link](https://inponomarev.ru/corejava)
 * Geometry in CS (5sem) [link](https://nvbogachev.netlify.app/teaching/gcs20f/)
 * Distributed and Parallel calculations (5sem)
 * Theory of fault-tolerant distributed systems (5sem)
