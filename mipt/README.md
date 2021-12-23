@@ -6,6 +6,7 @@
 * [Computer acrhitecture and operating systems](caos)
 * [Algorithms and data structures](aads)
 * [Python course](python)
+* [Trading bot team project](https://github.com/alexgryzlov/crypto-trade)
 
 
 ## Taken Programming courses at MIPT
@@ -23,6 +24,13 @@
 * Geometry in CS (5sem) [link](https://nvbogachev.netlify.app/teaching/gcs20f/)
 * Distributed and Parallel calculations (5sem)
 * Theory of fault-tolerant distributed systems (5sem)
+* Big Data Infrastructure (6sem)
+* Functional Programming (6sem)
+* Linux (6-7sem)
+* VCS, Testing and build automation (6sem)
+* Architecture (7sem)
+* Highload (7sem)
+* Decentralized Finance (7sem)
 
 
 ## Taken Math courses at MIPT
@@ -45,3 +53,10 @@
 * Functional Analysis (5-6sem)
 * Complexity Theory (5sem)
 * Optimization methods (5sem)
+* Functional Analysis (6sem)
+* Machine Learning (6sem)
+* Stochastic  processes (6sem)
+* Computational mathematics (7sem)
+* Quantative Finance (7sem)
+* Cryptography (7sem)
+
